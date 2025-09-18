@@ -11,19 +11,6 @@ public class DbContextDio : DbContext
     public DbSet<Admin> Admins { get; set; } = default!;
     public DbSet<Vehicle> Vehicles { get; set; } = default!;
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Admin>().HasData(
-            new Admin
-            {
-                Id = 1,
-                Email = "admin@teste.com",
-                Senha = "123456",
-                Perfil = "Admin"
-            }
-        );
-    }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
